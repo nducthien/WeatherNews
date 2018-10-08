@@ -75,8 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                        Snackbar.make(coordinatorLayout, "Permission Denied", Snackbar.LENGTH_LONG)
-                                .show();
+                        Snackbar.make(coordinatorLayout, "Permission Denied", Snackbar.LENGTH_LONG).show();
                     }
                 }).check();
     }
@@ -89,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 super.onLocationResult(locationResult);
 
                 Common.current_location = locationResult.getLastLocation();
+
                 viewPager = findViewById(R.id.view_pager);
                 setupViewPager(viewPager);
                 tabLayout = findViewById(R.id.tabs);
@@ -113,7 +113,5 @@ public class MainActivity extends AppCompatActivity {
         locationRequest.setInterval(5000);
         locationRequest.setFastestInterval(3000);
         locationRequest.setSmallestDisplacement(10.0f);
-
-
     }
 }
