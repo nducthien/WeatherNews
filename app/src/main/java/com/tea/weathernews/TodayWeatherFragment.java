@@ -1,6 +1,7 @@
 package com.tea.weathernews;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetView;
 import com.squareup.picasso.Picasso;
 import com.tea.weathernews.common.Common;
 import com.tea.weathernews.model.WeatherResult;
@@ -84,6 +87,12 @@ public class TodayWeatherFragment extends Fragment {
         weather_panel = view.findViewById(R.id.weather_panel);
         loading = view.findViewById(R.id.loading);
 
+        //Add targetView
+        TapTargetView.showFor((Activity) getContext(),
+                TapTarget.forView(view.findViewById(R.id.weather_panel), "This is Target", "Show weather today")
+                        .tintTarget(false)
+                        .outerCircleColor(R.color.colorAccent));
+
         getWeatherInformation();
 
         return view;
@@ -132,4 +141,9 @@ public class TodayWeatherFragment extends Fragment {
         );
     }
 
+    @Override
+    public void onStop() {
+        compositeDisposable.clear();
+        super.onStop();
+    }
 }

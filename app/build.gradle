@@ -53,4 +53,7 @@ dependencies {
 
     implementation 'com.android.support:multidex:1.0.2'
 
+    //TapTargetView
+    implementation 'com.getkeepsafe.taptargetview:taptargetview:1.9.1'
+
 }
