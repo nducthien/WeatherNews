@@ -3,7 +3,7 @@ package com.tea.weathernews.model;
 public class Wind {
 
     private double speed;
-    private int deg;
+    private float deg;
 
     public Wind() {
     }
@@ -16,11 +16,11 @@ public class Wind {
         this.speed = speed;
     }
 
-    public int getDeg() {
+    public float getDeg() {
         return deg;
     }
 
-    public void setDeg(int deg) {
+    public void setDeg(float deg) {
         this.deg = deg;
     }
 }
